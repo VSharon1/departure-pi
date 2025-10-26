@@ -45,9 +45,11 @@ def fetch_data(stop_id):
         return departures_list, None
 
     except requests.exceptions.RequestException as e:
+        print(f"Network Error: {e}")
         return None, f"Network Error: {e}"
 
     except Exception as e:
+        print(f"Error: {e}")
         return None, f"Error: {e}"
 
 
