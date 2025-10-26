@@ -25,12 +25,20 @@ def fetch_data(stop_id):
                 departures = line.get("departures", {}).get("departure", [])
 
                 if departures:
+                    countdown1 = departures[0].get("departureTime", {}).get("countdown")
+
+                    countdown2 = None
+
+                    if len(departures) > 1:
+                        countdown2 = (
+                            departures[1].get("departureTime", {}).get("countdown")
+                        )
+
                     departure_info = {
-                        "name": line.get("name", "?"),
-                        "towards": line.get("towards", "?"),
-                        "countdown": departures[0]
-                        .get("departureTime", {})
-                        .get("countdown"),
+                        "line": line.get("name", "?"),
+                        "direction": line.get("towards", "?"),
+                        "countdown1": countdown1,
+                        "countdown2": countdown2,
                     }
 
                     departures_list.append(departure_info)
