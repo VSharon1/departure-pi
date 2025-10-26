@@ -23,21 +23,22 @@ def fetch_data(stop_id):
             for line in lines:
                 departures = line.get("departures", {}).get("departure", [])
 
-                if departures:
-                    countdown1 = departures[0].get("departureTime", {}).get("countdown")
+                # Slice the departures list to only get the first two
+                for departure in departures[:2]:
+                    departure_time_info = departure.get("departureTime", {})
+                    vehicle_info = departure.get("vehicle", {})
 
-                    countdown2 = None
+                    is_realtime = "timeReal" in departure_time_info
+                    countdown = departure_time_info.get("countdown", "?")
 
-                    if len(departures) > 1:
-                        countdown2 = (
-                            departures[1].get("departureTime", {}).get("countdown")
-                        )
+                    line_name = vehicle_info.get("name", "?")
+                    towards = vehicle_info.get("towards", "?")
 
                     departure_info = {
-                        "line": line.get("name", "?"),
-                        "direction": line.get("towards", "?"),
-                        "countdown1": countdown1,
-                        "countdown2": countdown2,
+                        "line": line_name,
+                        "direction": towards.strip(),
+                        "countdown": countdown,
+                        "realtime": is_realtime,
                     }
 
                     departures_list.append(departure_info)
