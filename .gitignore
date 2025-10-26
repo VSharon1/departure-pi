@@ -1,0 +1,87 @@
+# Ignore secret config file
+config.json
+
+# General OS files
+.DS_Store
+Thumbs.db
+
+# Linux
+*~
+*.swp
+*.swo
+.cache/
+.config/
+.local/
+.aptitude/
+
+# Windows
+ntuser.dat*
+ntuser.ini
+$RECYCLE.BIN/
+*.lnk
+Desktop.ini
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# VS Code
+.vscode/
+*.code-workspace
+.venv/
+
+# Node.js / JavaScript / React / Vite
+node_modules/
+npm-debug.log
+dist/
+build/
+.next/
+out/
+.coverage/
+.env
+.env.local
+.env.*.local
+
+# Vite specific
+.vite/
+*.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.env
+venv/
+*.egg-info/
+
+# SQL / Databases
+*.sqlite
+*.db
+*.sql-journal
+*.db-wal
+*.db-shm
+
+# Fullstack / Backend
+prisma/migrations/
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# IDE / Editors
+.idea/
+*.iml
+*.swp
+*.swo
+
+# Build / Dependencies
+*.out
+*.pid
+*.seed
+
+# Local Overrides (should be at the end)
+.gitignore.local
