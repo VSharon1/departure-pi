@@ -8,7 +8,6 @@ def fetch_data(stop_id):
 
     try:
         response = requests.get(api_url)
-
         # Raises an HTTPError for bad responses (4xx or 5xx).
         response.raise_for_status()
 
@@ -58,7 +57,6 @@ if __name__ == "__main__":
     TEST_STOP_ID = 4118
 
     print(f"Fetching data for stop ID: {TEST_STOP_ID}")
-
     departures_list, err = fetch_data(TEST_STOP_ID)
 
     if err:
